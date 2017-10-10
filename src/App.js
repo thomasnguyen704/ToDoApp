@@ -3,16 +3,25 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state={
+    myList:[
+
+    ]
+  }
+
+  onClick=()=>{
+    this.setState({
+      myList:[...this.state.myList, "eggs"]
+      }
+    )
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <ul>
+          {this.state.myList.map(val=><li>{val}</li>)}
+        </ul>
+        <button onClick={this.onClick}>Click Me</button>
       </div>
     );
   }
