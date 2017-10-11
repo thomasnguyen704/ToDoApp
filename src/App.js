@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
   state={
     myList:[
 
@@ -22,6 +23,7 @@ class App extends Component {
           {this.state.myList.map(val=><li>{val}</li>)}
         </ul>
         <button onClick={this.onClick}>Click Me</button>
+
       </div>
     );
   }
