@@ -4,27 +4,26 @@ import './App.css';
 
 class App extends Component {
   state={
-    myList:[]
+    myList:[
+
+    ]
   }
-  spoof=()=>{
-    
+
+  onClick=()=>{
     this.setState({
       myList:[...this.state.myList, "eggs"]
-    })
-  }
-  deleteItem=(value)=>{
-    this.setState({
-      myList:this.state.myList.filter(val=>value!==val)
-    })
+      }
+    )
   }
   render() {
     console.log(this.state)
     return (
       <div>
         <ul>
-          {this.state.myList.map((val, index)=><li key={index}>{val}</li>)}
+          {this.state.myList.map(val=><li>{val}</li>)}
         </ul>
-        <button onClick={this.spoof}>Click me</button>
+        <button onClick={this.onClick}>Click Me</button>
+
       </div>
     );
   }
