@@ -1,11 +1,19 @@
-import React, {Component} from 'react';
-import './App.css';
+import React, {Component} from 'react'
+import './App.css'
+import Button from 'material-ui/Button'
+import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List'
+import Checkbox from 'material-ui/Checkbox'
 
 class App extends Component {
   state={
-    myList:[
+    myList:[],
+    isChecked: false,
+  }
 
-    ]
+  onListItemClick = ()=> {
+    this.setState({
+      isChecked: !this.state.isChecked
+    })
   }
 
   onClick=()=>{
@@ -14,16 +22,20 @@ class App extends Component {
       }
     )
   }
-  render() {
-    console.log(this.state)
-    return (
-      <div>
-        <ul>
-          {this.state.myList.map(val=><li>{val}</li>)}
-        </ul>
-        <button onClick={this.onClick}>Click Me</button>
 
-      </div>
+  render() {
+    return (
+        <List>
+          {
+            this.state.myList.map((val, index)=>(
+              <ListItem key={val}>
+                <Checkbox checked={this.state.isChecked} onClick={this.onListItemClick} />
+                <ListItemText primary={val}></ListItemText>
+              </ListItem>
+            ))
+          }
+          <Button color="primary" raised onClick={this.onClick}>Click Me</Button>
+        </List>
     );
   }
 }
