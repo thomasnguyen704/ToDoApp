@@ -1,46 +1,32 @@
-import React, { Component } from 'react'
-import './App.css'
+import React, {Component} from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 class App extends Component {
-  state = {
-    myList: []
+  state={
+    myList:[
+
+    ]
   }
 
-  add = ()=> {
+  onClick=()=>{
     this.setState({
-      myList: [...this.state.myList, 'eggs']
-    })
+      myList:[...this.state.myList, "eggs"]
+      }
+    )
   }
-
   render() {
+    console.log(this.state)
     return (
       <div>
         <ul>
-          {
-            this.state.myList.map(
-              (val, index)=> <li key={index}>{val}</li>
-            )
-          }
+          {this.state.myList.map(val=><li>{val}</li>)}
         </ul>
-        <button onClick={this.add}>Click</button>
+        <button onClick={this.onClick}>Click Me</button>
+
       </div>
-    )
+    );
   }
 }
 
 export default App
-
-
-/* A LIST EXAMPLE
-  const myList = ['one', 'two', 'three']
-  const ListItem = (props)=> <li>{props.text}</li>
-  export default ()=> (
-    <ul>
-      {
-        myList.map(
-          (val)=> <ListItem text={val}/>
-        )
-      }
-    </ul>
-  )
-*/
