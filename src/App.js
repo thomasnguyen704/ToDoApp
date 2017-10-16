@@ -1,6 +1,4 @@
 import React, {Component} from 'react'
-import logo from './logo.svg'
-import './App.css'
 import Button from 'material-ui/Button'
 import List, { ListItem, ListItemText } from 'material-ui/List'
 import Checkbox from 'material-ui/Checkbox'
@@ -25,7 +23,7 @@ class App extends Component{
 
 	onClick=()=>{
 		this.setState({
-			myList: [...this.state.myList{
+			myList: [...this.state.myList, {
 				primaryText: "eggs",
 				onClick: this.onListItemClick,
 				isChecked: false
